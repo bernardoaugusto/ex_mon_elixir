@@ -31,4 +31,21 @@ defmodule ExMonTest do
       assert messages =~ "turn: :player"
     end
   end
+
+  describe "make_move/1" do
+    test "when the move is valid, do the move and the computer makes a move" do
+      player = Player.build("Bernardo", :punch, :kick, :heal)
+
+      messages =
+        capture_io(fn ->
+          ExMon.start_game(player)
+          ExMon.make_move(:punch)
+        end)
+
+        assert messages =~ "The Player attacked the computer"
+        assert messages =~ "It's computer turn"
+        assert messages =~ "It's player turn"
+        assert messages =~ "status: :continue"
+    end
+  end
 end
