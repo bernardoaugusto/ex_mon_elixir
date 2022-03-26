@@ -17,18 +17,18 @@ defmodule ExMonTest do
     end
   end
 
-  # describe "start_game/1" do
-  #   test "when the game starded, returns a message" do
-  #     player = Player.build("Bernardo", :punch, :kick, :heal)
+  describe "start_game/1" do
+    test "when the game starded, returns a message" do
+      player = Player.build("Bernardo", :punch, :kick, :heal)
 
-  #     messages =
-  #       capture_io(fn ->
-  #         assert ExMon.start_game(player) == :ok
-  #       end)
+      messages =
+        capture_io(fn ->
+          assert ExMon.start_game(player) == :ok
+        end)
 
-  #     assert messages =~ "The game is started!"
-  #     assert messages =~ "status: :started"
-  #     assert messages =~ "turn: :player"
-  #   end
-  # end
+      assert messages =~ "The game is started!"
+      assert messages =~ "status: :started"
+      assert messages =~ "turn: :player"
+    end
+  end
 end
